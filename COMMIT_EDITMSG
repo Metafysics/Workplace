@@ -1,0 +1,7 @@
+Enable searching and selecting employees when sending media files
+
+Implements employee search functionality in MediaSendModal using the Input component and filters the employee list based on search term.
+
+Replit-Commit-Author: Agent
+Replit-Commit-Session-Id: 59ff0c05-0493-461b-9548-c2a7919fa1bc
+Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/055d1835-0056-496c-a905-d5db35eed00a/afa97410-24da-4a01-bd84-5de8b81c6195.jpg

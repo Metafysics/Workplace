@@ -1,0 +1,125 @@
+🧩 Hoofdfuncties van het Platform
+🎁 Voor Werknemers (via NFC-tag naar persoonlijke pagina):
+Persoonlijke tijdlijn (foto's, video's, berichten, downloadbaar)
+
+Complimenten versturen naar collega's
+
+Pushnotificatie of reminder (email/WhatsApp) bij nieuwe content
+
+🧑‍💼 Voor Werkgever / HR (via Dashboard):
+Beheer van medewerkersaccounts
+
+Content toevoegen aan tijdlijn per medewerker
+
+Content plannen via triggers (bv. verjaardag, events)
+
+Notificaties instellen (push/email/WhatsApp)
+
+Templates beheren (standaardmomenten)
+
+Analytics: gebruiksgraad, interactie, teamstatistieken
+
+🏗️ Technische Structuur (High-Level)
+🔐 Authenticatie
+Bedrijven registreren/login: via email/wachtwoord of SSO (Google).
+
+Medewerkerslogin via NFC: NFC bevat een unieke URL/token die hen direct naar hun eigen tijdlijn brengt.
+
+📦 Backend (bijvoorbeeld in Python Flask of Node.js)
+Database (bijv. PostgreSQL of Supabase)
+
+Bedrijven
+
+Medewerkers
+
+Media (foto, video, berichten)
+
+Complimenten
+
+Templates
+
+Triggers
+
+Statistieken/logs
+
+🌐 Frontend
+Gemaakt in HTML/CSS/JS, eventueel React.js of minimalistisch Tailwind + JS
+
+Responsive, intuïtieve UI
+
+Simpele weergave voor medewerkers, uitgebreid dashboard voor HR
+
+📲 NFC-integratie
+Iedere box heeft een NFC-tag → link naar unieke URL met token voor medewerker
+
+Geen aparte login nodig voor medewerker, token authenticatie
+
+🔔 Notificatiesysteem
+Bij voorkeur met externe services:
+
+Email: Mailgun / SendGrid
+
+WhatsApp: Twilio of WhatsApp Business API
+
+Push notifications: als PWA of via mobiele app in later stadium
+
+🧰 Automatisering
+Crons / background jobs die dagelijks checken op verjaardagen / geplande triggers
+
+Mogelijkheid tot handmatig plannen of via template
+
+✅ MVP (Minimal Viable Product) Plan
+Fase 1: Core functionaliteit bouwen
+
+Authentificatie werkgever + HR-dashboard
+
+Medewerkersprofiel met NFC-token toegang
+
+Tijdlijn met media (upload + weergave)
+
+Complimentensysteem
+
+Triggersysteem (verjaardag)
+
+Eenvoudige notificatie via e-mail
+
+Fase 2: Verbeteringen + automatiseringen
+
+Template systeem met beheer
+
+Analytics-dashboard
+
+WhatsApp reminders
+
+Teams en rollen
+
+Mobiele optimalisatie / PWA
+
+Fase 3: Uitbreiding en schaalbaarheid
+
+Pushnotificaties
+
+Appversie (optioneel)
+
+AI-suggesties (bijv. automatische complimentenvoorstellen)
+
+🛠️ Tools op Replit
+Frontend: HTML/CSS/JS of React + TailwindCSS
+
+Backend: Flask (Python) of Express (Node.js)
+
+Database: Replit Database of beter nog Supabase/PostgreSQL
+
+Storage voor media: Cloudinary of Supabase Storage
+
+NFC integratie: NFC-tokens met links naar https://jouwapp.com/user/[uniek-token]
+
+🖥️ Voorbeeld database tabellen
+Table	Velden
+Companies	id, name, admin_id, plan_type
+Users	id, name, email, nfc_token, company_id, team_id
+Media	id, user_id, type (photo/video), url, caption, created_at
+Compliments	id, from_user_id, to_user_id, message, timestamp
+Templates	id, name, type, media_id(s), trigger_type
+Triggers	id, user_id, trigger_type, date, template_id
+Analytics	id, user_id, action_type, timestamp
